@@ -75,14 +75,8 @@ function touchStartHandler(e) {
 function touchEndHandler(e) {
   e.preventDefault();
 
-  const touch = e.changedTouches[0];
-  var relativeX = touch.clientX - canvas.offsetLeft;
-  if (relativeX > 0 && relativeX < canvas.width/2) {
-    leftPressed = false;
-  }
-  else if (relativeX >= canvas.width/2 && relativeX < canvas.width) {
-    rightPressed = false;
-  }
+  leftPressed = false;
+  rightPressed = false;
 }
 
 function collisionDetection() {
