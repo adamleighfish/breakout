@@ -31,6 +31,7 @@ for(var c=0; c<brickColumnCount; c++) {
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 document.addEventListener("mousemove", mouseMoveHandler, false);
+document.addEventListener("touchstart", touchStartHandler, false);
 
 function keyDownHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
@@ -56,6 +57,17 @@ function mouseMoveHandler(e) {
     paddleX = relativeX - paddleWidth/2;
   }
 }
+
+function touchStartHandler(e) {
+  e.preventDefault();
+
+  const touch = e.changedTouches[0];
+  var relativeX = touch.clientX - canvas.offsetLeft;
+  if (relativeX > 0 && relativeX < canvas.width) {
+    paddleX = relativeX - paddleWidth/2;
+  }
+}
+
 function collisionDetection() {
   for(var c=0; c<brickColumnCount; c++) {
     for(var r=0; r<brickRowCount; r++) {
