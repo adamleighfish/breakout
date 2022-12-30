@@ -66,7 +66,7 @@ function collisionDetection() {
           b.status = 0;
           score++;
           if(score == brickRowCount*brickColumnCount) {
-            alert("YOU WIN, COLLECT YOUR PRIZE!");
+            alert("CONGRATS, YOU WIN SOME HAND WARMERS!");
             document.location.reload();
           }
         }
